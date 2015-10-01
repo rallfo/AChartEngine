@@ -28,8 +28,8 @@ dependencies {
 }
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 21
+    buildToolsVersion '23.0.1'
 
     defaultConfig {
         minSdkVersion 8
@@ -63,3 +63,6 @@ android {
     }
 }
 
+task jar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+}

@@ -174,6 +174,17 @@ public class XYSeries implements Serializable {
   }
 
   /**
+   * Removes the first value from the series.
+   * Useful for sliding, realtime graphs where a standard remove takes up too much time.
+   * It assumes data is sorted on the key value (X component).
+   */
+  public synchronized void removeFirst() {
+    mXY.removeByIndex(0);
+    if (!mXY.isEmpty())
+      mMinX = mXY.getXByIndex(0);
+  }
+
+  /**
    * Removes all the existing values and annotations from the series.
    */
   public synchronized void clear() {
